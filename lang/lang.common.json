@@ -1,7 +1,7 @@
 {
     "bot": {
-        "name": "My Bot",
-        "author": "My Name"
+        "name": "Teqbot",
+        "author": "Timothy E. Quilling"
     },
     "emojis": {
         "yes": "✅",
@@ -23,12 +23,12 @@
         "error": "#ff4a4a"
     },
     "links": {
-        "author": "https://github.com/",
+        "author": "https://github.com/Teqed/",
         "docs": "https://top.gg/",
-        "donate": "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=EW389DYYSS4FC",
+        "donate": "https://donate.doctorswithoutborders.org/secure/donate/",
         "invite": "https://discord.com/",
-        "source": "https://github.com/",
-        "stream": "https://www.twitch.tv/novakevin",
+        "source": "https://github.com/Teqed/teqbot/",
+        "stream": "https://shatteredsky.net/",
         "support": "https://support.discord.com/",
         "template": "https://github.com/KevinNovak/Discord-Bot-TypeScript-Template",
         "vote": "https://top.gg/"
