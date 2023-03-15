@@ -45,7 +45,7 @@ export class AskTrigger implements Trigger {
 		return msg.content.includes('Teqbot, ');
 	}
 	public async execute(msg: Message): Promise<void> {
-		const waiting = true;
+		let waiting = true;
 		// Every 5 seconds, send the typing indicator
 		const typingInterval = setInterval(() => {
 			if (waiting) {
@@ -59,5 +59,6 @@ export class AskTrigger implements Trigger {
 		const question = msg.content.replace('Teqbot, ', '');
 		const reply = await chat(question);
 		await msg.reply(reply);
+		waiting = false;
 	}	
 }
