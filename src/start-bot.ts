@@ -3,7 +3,7 @@ import { Options, Partials } from 'discord.js';
 import { createRequire } from 'node:module';
 
 import { Button } from './buttons/index.js';
-import { HelpCommand, InfoCommand, TestCommand } from './commands/chat/index.js';
+import { AskCommand, HelpCommand, InfoCommand, TestCommand } from './commands/chat/index.js';
 import {
     ChatCommandMetadata,
     Command,
@@ -31,7 +31,7 @@ import {
     JobService,
     Logger,
 } from './services/index.js';
-import { Trigger } from './triggers/index.js';
+import { AskTrigger, Trigger } from './triggers/index.js';
 
 const require = createRequire(import.meta.url);
 let Config = require('../config/config.json');
@@ -67,6 +67,7 @@ async function start(): Promise<void> {
         new ViewDateJoined(),
 
         // TODO: Add new commands here
+        new AskCommand(),
     ];
 
     // Buttons
@@ -82,6 +83,7 @@ async function start(): Promise<void> {
     // Triggers
     let triggers: Trigger[] = [
         // TODO: Add new triggers here
+        new AskTrigger(),
     ];
 
     // Event handlers

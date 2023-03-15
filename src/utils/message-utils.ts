@@ -36,6 +36,9 @@ export class MessageUtils {
                     : content instanceof EmbedBuilder
                     ? { embeds: [content] }
                     : content;
+                    // eslint-disable-next-line
+            // @ts-ignore-next-line
+            // eslint-disable-next-line
             return await target.send(options);
         } catch (error) {
             if (

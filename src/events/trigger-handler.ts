@@ -17,11 +17,14 @@ export class TriggerHandler {
     constructor(private triggers: Trigger[], private eventDataService: EventDataService) {}
 
     public async process(msg: Message): Promise<void> {
+        console.log('TriggerHandler.process()')
+        console.log(msg)
         // Check if user is rate limited
         let limited = this.rateLimiter.take(msg.author.id);
         if (limited) {
             return;
         }
+        console.log('TriggerHandler.process() - not limited')
 
         // Find triggers caused by this message
         let triggers = this.triggers.filter(trigger => {
@@ -35,11 +38,15 @@ export class TriggerHandler {
 
             return true;
         });
+        console.log('TriggerHandler.process() - searching for triggers')
+        console.log(triggers)
 
         // If this message causes no triggers then return
         if (triggers.length === 0) {
+            console.log('TriggerHandler.process() - no triggers found')
             return;
         }
+        console.log('TriggerHandler.process() - triggers found')
 
         // Get data from database
         let data = await this.eventDataService.create({
@@ -47,10 +54,12 @@ export class TriggerHandler {
             channel: msg.channel,
             guild: msg.guild,
         });
+        console.log('TriggerHandler.process() - data retrieved')
 
         // Execute triggers
         for (let trigger of triggers) {
             await trigger.execute(msg, data);
         }
+        console.log('TriggerHandler.process() - triggers executed')
     }
 }

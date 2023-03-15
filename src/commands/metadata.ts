@@ -50,6 +50,15 @@ export const ChatCommandMetadata: {
         dm_permission: true,
         default_member_permissions: undefined,
     },
+    ASK: {
+        type: ApplicationCommandType.ChatInput,
+        name: Lang.getRef('chatCommands.ask', Language.Default),
+        name_localizations: Lang.getRefLocalizationMap('chatCommands.ask'),
+        description: Lang.getRef('commandDescs.ask', Language.Default),
+        description_localizations: Lang.getRefLocalizationMap('commandDescs.ask'),
+        dm_permission: true,
+        default_member_permissions: undefined,
+    },
 };
 
 export const MessageCommandMetadata: {
