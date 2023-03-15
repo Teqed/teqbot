@@ -45,9 +45,17 @@ export class AskTrigger implements Trigger {
 		return msg.content.includes('Teqbot, ');
 	}
 	public async execute(msg: Message): Promise<void> {
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
-		await msg.channel.sendTyping();
+		const waiting = true;
+		// Every 5 seconds, send the typing indicator
+		const typingInterval = setInterval(() => {
+			if (waiting) {
+				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+				// @ts-ignore
+				msg.channel.sendTyping();
+			} else {
+				clearInterval(typingInterval);
+			}
+		}, 5000);
 		const question = msg.content.replace('Teqbot, ', '');
 		const reply = await chat(question);
 		await msg.reply(reply);
