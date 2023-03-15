@@ -23,6 +23,7 @@ const chat = async (question: string): Promise<string> => {
 		method: 'POST',
 		body: JSON.stringify({
 			messages: messages,
+			requestType: 'chatCompletion',
 		}),
 	});
 	const replyMessage = await (await chatGPTMessage).text();
