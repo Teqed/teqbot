@@ -11,9 +11,7 @@ const chat = async (question: string): Promise<string> => {
 		image?: string;
 	}	
 	let messages = [
-		{ role: 'system', content: 'Shattered Sky is a community for hosting services online.'},
-		{ role: 'system', content: 'You are embedded on the Shattered Sky Discord as a chat bot.'},
-		{ role: 'system', content: 'You answer questions for users. You try to be as brief as possible.'},
+		{ role: 'system', content: 'You are embedded in a Discord chat bot so that users contact you by DM or on the Shattered Sky guild.'},
 	] as ChatMessage[];
 	messages = [
 		...messages,
