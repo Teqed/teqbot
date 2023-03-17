@@ -24,9 +24,8 @@ const chat = async (question: string): Promise<string> => {
 			requestType: 'chatCompletion',
 		}),
 	});
-	const replyText = (await chatGPTMessage) as any as string;
-	console.log('chatGPTMessage:', chatGPTMessage)
-	console.log('replyText:', replyText)
+	const replyBody = (await chatGPTMessage);
+	const replyText = await replyBody.text();
 	messages = [
 		...messages,
 		{ role: 'assistant', content: replyText },
