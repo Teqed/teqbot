@@ -1,4 +1,5 @@
 import {Message} from 'discord.js';
+import fetch from 'node-fetch';
 
 import {Trigger} from './trigger.js';
 
