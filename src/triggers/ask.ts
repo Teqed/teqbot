@@ -1,5 +1,4 @@
 import {Message} from 'discord.js';
-import fetch from 'node-fetch';
 
 import {Trigger} from './trigger.js';
 
@@ -24,8 +23,8 @@ const chat = async (question: string): Promise<string> => {
 			requestType: 'chatCompletion',
 		}),
 	});
+	const replyText = (await chatGPTMessage) as any as string;
 	console.log('chatGPTMessage:', chatGPTMessage)
-	const replyText = await chatGPTMessage as any as string;
 	console.log('replyText:', replyText)
 	messages = [
 		...messages,
