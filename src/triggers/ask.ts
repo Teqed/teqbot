@@ -24,12 +24,11 @@ const chat = async (question: string): Promise<string> => {
 			requestType: 'chatCompletion',
 		}),
 	});
-	const replyMessage = await chatGPTMessage as any as string;
+	const replyText = await chatGPTMessage as any as string;
 	messages = [
 		...messages,
-		{ role: 'assistant', content: replyMessage },
+		{ role: 'assistant', content: replyText },
 	];
-	const replyText = JSON.parse(replyMessage).content;
 	return replyText;
 	} catch (err) {
 		console.error(err);
